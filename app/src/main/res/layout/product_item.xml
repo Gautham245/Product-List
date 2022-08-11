@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="product"
+            type="com.example.productlist.data.local.entity.ProductEntity" />
+    </data>
+
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/product_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/light_teal"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_16"
+        app:cardCornerRadius="@dimen/dp_16">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_8">
+
+            <ImageView
+                android:id="@+id/product_image"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_100"
+                android:contentDescription="@{product.title}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <TextView
+                android:id="@+id/product_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@{product.title}"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:justificationMode="inter_word"
+                app:layout_constraintStart_toEndOf="@id/product_image"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/constraint_layout"/>
+
+
+            <TextView
+                android:id="@+id/product_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@{product.description}"
+                android:justificationMode="inter_word"
+                app:layout_constraintEnd_toEndOf="@id/constraint_layout"
+                app:layout_constraintStart_toEndOf="@id/product_image"
+                app:layout_constraintTop_toBottomOf="@id/product_title" />
+
+            <TextView
+                android:id="@+id/product_price_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@string/price"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/product_image"
+                app:layout_constraintTop_toBottomOf="@id/product_description" />
+
+
+            <TextView
+                android:id="@+id/product_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_8"
+                android:text="@{String.valueOf(product.price)}"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@id/product_price_tv"
+                app:layout_constraintTop_toBottomOf="@id/product_description" />
+
+
+            <TextView
+                android:id="@+id/rating_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/rating"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toStartOf="@id/rating"
+                android:layout_marginStart="@dimen/dp_8"
+                app:layout_constraintStart_toEndOf="@id/product_image"
+                app:layout_constraintTop_toBottomOf="@id/product_price_tv" />
+
+
+            <TextView
+                android:id="@+id/rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(product.rating) }"
+                android:textColor="@color/black"
+                app:layout_constraintStart_toEndOf="@id/rating_text"
+                app:layout_constraintTop_toBottomOf="@id/product_price_tv" />
+
+
+            <ImageView
+                android:id="@+id/favourite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/favourite_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>
+
+

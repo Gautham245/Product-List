@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Product List</string>
+    <string name="rating">Rating : </string>
+    <string name="favourite_icon">Favourite Icon</string>
+    <string name="price">Price in INR : </string>
+    <string name="search">Search</string>
+</resources>
